@@ -1,0 +1,122 @@
+<style>
+    .content {
+        padding: 20px; 
+        width: fit-content; 
+        margin: auto; 
+        border: 2px solid blue;
+        border-radius: 5px;
+        margin-top: 100px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
+    }
+
+    h1 {
+        color: black;
+        transition: color 0.3s ease, font-size 0.3s ease;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        }
+
+        h1:hover {
+            color: red;
+        }
+    
+    button {
+        background-color: #007BFF;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        }
+        input:focus {
+            border-color: #007BFF;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+    body {
+        background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+        font-family: Arial, sans-serif;
+        color: #333;
+    }
+
+    label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    }
+
+    h3 {
+        margin-top: 20px;
+    }
+
+    #tot {
+        font-size: 1.5em;
+        color: #007BFF;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        display: inline-block;
+    }
+
+
+</style>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso AWS</title>
+</head>
+<body>
+    <div class="content">
+        <h1>Prueba de Suma</h1>
+        
+        <label>numero 1</label>
+        <input id="num1" type="number" >
+        </br></br>
+        <label>numero 2</label>
+        <input id="num2" type="number" >
+        </br></br>
+
+        <h3>Total: 
+            <span id="tot"></span>
+        </h3>
+        </br></br>
+
+        <button onclick="sumar()">calcular</button>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function sumar() {
+            
+            if(document.getElementById("num1").value != "" && document.getElementById("num2").value != ""){
+
+                var num1 = parseFloat(document.getElementById("num1").value);
+                var num2 = parseFloat(document.getElementById("num2").value);
+                var resultado = num1 + num2;
+                
+                document.getElementById("tot").innerText = resultado;
+            }
+            else{
+                alert("ingrese los dos valores Validos");
+            }
+        }
+</script>

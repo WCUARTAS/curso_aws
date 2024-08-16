@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/register.css">
+    <script src="/static/js/register.js"></script>
+    <title>Registro</title>
+</head>
+<body>
+    <div class="content">
+        <h1>Registro</h1>
+
+        <label>Nombre</label>
+        <input id="name" type="text" >
+        </br></br>
+
+        <label>Celular</label>
+        <input id="phone" type="text" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);">
+        </br></br>
+
+        <label>Nacimiento</label>
+        <input id="Birthdate" type="date" >
+        </br></br>
+
+        <label for="gender">Género:</label>
+        <select id="gender" name="gender">
+        <option value="" disabled selected>Selecciona tu género</option>
+        <option value="male">Masculino</option>
+        <option value="female">Femenino</option>
+        <option value="other">Otro</option>
+        <option value="prefer_not_to_say">Prefiero no decirlo</option>
+        </select>
+        </br></br>
+
+        <button onclick="save()" >Registrar</button>
+    </div>
+</body>
+</html>
