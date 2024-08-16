@@ -13,10 +13,6 @@ db_password = ""
 db_database = "db_aws"
 """
 
-
-
-
-
 def get_db():
     try:
         connection = pymysql.connect(
