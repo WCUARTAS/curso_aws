@@ -9,18 +9,22 @@
 </head>
 <body>
     <div class="content">
+        <!-- Botón para listar usuario -->
+        <button class="button-list" onclick="window.location.href='/list_users'">Ver Usuario</button>
+        <br>
+
         <h1>Registro</h1>
 
         <label>Nombre</label>
-        <input id="name" type="text" >
+        <input id="name" name="name" type="text" >
         </br></br>
 
         <label>Celular</label>
-        <input id="phone" type="text" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);">
+        <input id="phone" name="phone" type="text" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);">
         </br></br>
 
         <label>Nacimiento</label>
-        <input id="Birthdate" type="date" >
+        <input id="birthdate" name="birthdate" type="date" >
         </br></br>
 
         <label for="gender">Género:</label>
@@ -34,6 +38,7 @@
         </br></br>
 
         <button onclick="save()" >Registrar</button>
+        
     </div>
 </body>
 </html>

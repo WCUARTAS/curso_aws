@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/list_users.css">
+    <title>Lista de Usuarios</title>
+</head>
+<body>
+    <div class="content">
+        <!-- Botón para registrar un nuevo usuario -->
+        <button class="button-register" onclick="window.location.href='/register_page'">Nuevo Usuarios</button>
+        <br>
+
+        <h1>Lista de Usuarios</h1>
+        <table border="1">
+            <tr>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Género</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td>{{ user[0] }}</td>
+                <td>{{ user[1] }}</td>
+                <td>{{ user[2] }}</td>
+                <td>{{ user[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+</body>
+</html>

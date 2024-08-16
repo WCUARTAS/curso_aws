@@ -1,0 +1,106 @@
+/* Estilo para el contenedor principal */
+.content {
+    padding: 20px; 
+    width: fit-content; 
+    margin: auto; 
+    border: 2px solid blue;
+    border-radius: 5px;
+    margin-top: 100px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+/* Estilo para el título de la página */
+h1 {
+    color: black;
+    transition: color 0.3s ease, font-size 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+h1:hover {
+    color: red;
+}
+
+/* Estilo para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #007BFF;
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+/* Estilo para las filas al pasar el mouse */
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilo para el cuerpo de la página */
+body {
+    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para las etiquetas */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Estilo para los botones */
+button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Estilo para el botón de registrar usuario */
+.button-register {
+    background-color: #28a745; /* Verde */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 16px;
+}
+
+.button-register:hover {
+    background-color: #218838; /* Verde oscuro */
+    transform: scale(1.05);
+}
+

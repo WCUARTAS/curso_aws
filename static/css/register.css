@@ -1,6 +1,6 @@
 .content {
     padding: 20px; 
-    width: fit-content; 
+    width: 50%;
     margin: auto; 
     border: 2px solid blue;
     border-radius: 5px;
@@ -59,3 +59,21 @@ font-weight: bold;
 display: block;
 margin-bottom: 5px;
 }
+
+/* Estilo para el botón de listar usuario */
+.button-list {
+    background-color: #28a745; /* Verde */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 16px;
+}
+
+.button-list:hover {
+    background-color: #218838; /* Verde oscuro */
+    transform: scale(1.05);
+}
+
