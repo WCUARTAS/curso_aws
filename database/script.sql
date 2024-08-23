@@ -7,12 +7,13 @@ CREATE TABLE users (
     name VARCHAR(100) NOT NULL,
     phone VARCHAR(10) NOT NULL,
     birthdate DATE NOT NULL,
-    gender VARCHAR(50) NOT NULL
+    gender VARCHAR(50) NOT NULL,
+    photo VARCHAR(100) NOT NULL
 );
 
 INSERT INTO users
 (name,phone,birthdate,gender)
-VALUES("willian","3114752066","1993-11-26","male");
+VALUES("willian","3114752066","1993-11-26","male","imagen.png");
 
 select * from users 
 

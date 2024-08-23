@@ -7,17 +7,13 @@ def conectio_s3():
     session_s3 = session_aws.resource('s3')
     print("succesful connection")
 
-    """
-    print (session_s3)
-    for bucket in session_s3.buckets.all():
-        print(bucket.name)
-        print("Archivos:")
-        for obj in bucket.objects.all():
-            print(f"- {obj.key}")
-    """
+    return session_s3
 
-def save_file():
-    print("hola")
+def upload_file(session_s3,photo,photo_name):
+    bucket_name="bucket-curso-aws-wc-1"
+    file_s3_path="images_web/"+photo_name
+    session_s3.Bucket(bucket_name).upload_fileobj(photo,file_s3_path,ExtraArgs={'ACL': 'public-read'})
+    print("archivo guardado en S3")
 
 
     

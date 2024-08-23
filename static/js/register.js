@@ -4,6 +4,7 @@ function save() {
     const phone = document.getElementById('phone').value;
     const birthdate = document.getElementById('birthdate').value;
     const gender = document.getElementById('gender').value;
+    const photo = document.getElementById('photo').files[0]; 
 
     // Validar campos vacíos
     if (!name || !phone || !birthdate || !gender) {
@@ -20,19 +21,16 @@ function save() {
         return;
     }
 
-    const formData = {
-        name: name,
-        phone: phone,
-        birthdate: birthdate,
-        gender: gender
-    };
+    const formData = new FormData();
+        formData.append('name', name);
+        formData.append('phone', phone);
+        formData.append('birthdate', birthdate);
+        formData.append('gender', gender);
+        formData.append('photo', photo); 
 
     fetch('/save', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
+        body: formData
     })
     .then(response => response.text())
     .then(data => {
@@ -42,6 +40,7 @@ function save() {
         document.getElementById('phone').value = '';
         document.getElementById('birthdate').value = '';
         document.getElementById('gender').value = '';
+        document.getElementById('photo').value = '';
     })
     .catch(error => {
         console.error('Error:', error);

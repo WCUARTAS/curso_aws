@@ -104,3 +104,11 @@ button:hover {
     transform: scale(1.05);
 }
 
+/* Estilo para la imagen de la foto del usuario */
+.user-photo {
+    width: 100px; /* Ancho fijo */
+    height: 100px; /* Alto fijo */
+    object-fit: cover; /* Asegura que la imagen se recorte si es necesario para encajar en el contenedor */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

@@ -1,26 +1,37 @@
 from database.db import *
-from controller.s3_administrator import conectio_s3
+from controller.s3_administrator import *
 from flask import render_template, request
+from datetime import datetime
 
 def fun_register():
     db = get_db()
     cursor = db.cursor()
     try:
-        data = request.json  # Recibir los datos como JSON
+        
+        name = request.form['name']
+        phone = request.form['phone']
+        birthdate = request.form['birthdate']
+        gender = request.form['gender']
+        photo = request.files['photo'] 
 
-        name = data['name']
-        phone = data['phone']
-        birthdate = data['birthdate']
-        gender = data['gender']
+        extension = photo.filename.split(".")[-1]
+        nowDate = datetime.now()
+        photo_name = 'photo-'+nowDate.strftime("%Y%m%d%H%M%S")+"."+extension
+        
+
 
         cursor.execute(
-            "INSERT INTO users (name, phone,birthdate,gender) VALUES (%s, %s,%s, %s)",
-            (name, phone,birthdate,gender)
+            "INSERT INTO users (name, phone,birthdate,gender,photo) VALUES (%s, %s,%s, %s, %s)",
+            (name, phone,birthdate,gender,photo_name)
         )
         db.commit()
         cursor.close()
-        
-        #conectio_s3()
+ 
+
+        session_s3 = conectio_s3()
+        #photo_path = save_file(photo,photo_name)
+        upload_file(session_s3,photo,photo_name)
+
         return "Registro exitoso!"
     except Exception as e:
         db.rollback()
@@ -32,7 +43,7 @@ def fun_getUsers():
     db = get_db()
     cursor = db.cursor()
     try:
-        cursor.execute("SELECT name, phone, birthdate, gender FROM users")
+        cursor.execute("SELECT name, phone, birthdate, gender,photo FROM users")
         users = cursor.fetchall()  # Obtiene todos los registros
 
         # Traducción de los valores de género al español
@@ -44,7 +55,7 @@ def fun_getUsers():
                 'other': 'Otro',
                 'prefer_not_to_say': 'Prefiero no decirlo'
             }.get(user[3], 'Desconocido')  # Traducir o dejar 'Desconocido' si no hay coincidencia
-            list_users.append((user[0], user[1], user[2], translated_gender))
+            list_users.append((user[0], user[1], user[2], translated_gender,user[4]))
 
     except Exception as e:
         users = []
