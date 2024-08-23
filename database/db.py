@@ -26,4 +26,4 @@ def get_db():
         return connection
     except Exception as err:
         print("error en conexion a DB:  ",err)
-        return null
+        return 0
